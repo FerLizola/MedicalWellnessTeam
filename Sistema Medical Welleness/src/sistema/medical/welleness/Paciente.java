@@ -1,5 +1,6 @@
 
 import java.util.Date;
+import sistema.medical.welleness.Validar;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /*
@@ -108,6 +109,11 @@ public class Paciente extends javax.swing.JFrame {
         btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnGuardarMouseClicked(evt);
+            }
+        });
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -328,7 +334,8 @@ public class Paciente extends javax.swing.JFrame {
         if(!txtNSS.getText().isEmpty()&&!txtNom.getText().isEmpty()&&!txtDom.getText().isEmpty()&&
                 !txtUM.getText().isEmpty()&&!txtTel.getText().isEmpty()&&!txtCURP.getText().isEmpty()&&
                 !txtFN.getText().isEmpty()&&!txtMedico.getText().isEmpty()&&!txtCiudad.getText().isEmpty()&&
-                !txtCP.getText().isEmpty()&&!txtOcup.getText().isEmpty()&&!txtEdad.getText().isEmpty()){
+                !txtCP.getText().isEmpty()&&!txtOcup.getText().isEmpty()&&!txtEdad.getText().isEmpty()
+                && Validar.telefono(txtTel.getText()) ){
             TDAPaciente pac=new TDAPaciente();    
             pac.setNss(txtNSS.getText());
             pac.setNombre(txtNom.getText());
@@ -371,6 +378,10 @@ public class Paciente extends javax.swing.JFrame {
             showMessageDialog(this,"¡Complete el formulario para registrar al beneficiario!");
         }
     }//GEN-LAST:event_btnGuardarMouseClicked
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
