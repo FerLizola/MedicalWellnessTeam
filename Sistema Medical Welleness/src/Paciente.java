@@ -1,6 +1,5 @@
 
 import java.util.Date;
-import sistema.medical.welleness.Validar;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /*

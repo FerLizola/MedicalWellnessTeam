@@ -135,21 +135,22 @@ public class Menu_Farmacia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCamConActionPerformed
 
     private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
-        if(puesto.equals("Administrador")){
-            Menu obj= new Menu();
-            obj.setVisible(true);
-            dispose();
-        }
-        else{
-            Login log= new Login();
-            log.setVisible(true);
-            dispose();
-        }
+        RegistrarMedicamento reg= new RegistrarMedicamento();
+        //if(reg.puesto.equals("Administrador")){
+        //    Menu obj= new Menu();
+        //    obj.setVisible(true);
+         //   dispose();
+        //}
+        //else{
+           Login log= new Login();
+           log.setVisible(true);
+           dispose();
+        //}
             
     }//GEN-LAST:event_btnCerrarMouseClicked
 
     private void btnRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegMouseClicked
-        RegistrarMedicamento reg= new RegistrarMedicamento();
+        RegistrarMedicamento reg= new RegistrarMedicamento(puesto);
         reg.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegMouseClicked

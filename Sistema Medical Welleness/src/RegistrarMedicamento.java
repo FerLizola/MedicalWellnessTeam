@@ -16,8 +16,13 @@ public class RegistrarMedicamento extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarMedicamento
      */
+    String puesto;
     public RegistrarMedicamento() {
         initComponents();
+    }
+    public RegistrarMedicamento(String puesto) {
+        initComponents();
+        this.puesto=puesto;
     }
 
     /**
