@@ -47,6 +47,57 @@ public class TDALogin {
         ResultSet r = stmt.executeQuery(sql);
                 if(r.next()==true){    
                    if(r.getString("PUESTO").equals("Administrador")){
+                       if(user.equals(password)){
+                           CambiarContraseña cam= new CambiarContraseña(user);
+                           cam.setVisible(true);
+                       }
+                       else{
+                           Menu men= new Menu();
+                           Login log=new Login();
+                           men.setVisible(true);
+                           log.dispose();
+                           return true;
+                       }
+                   }
+                   if(r.getString("PUESTO").equals("Secretaria")){
+                       MenuSecretaria men= new MenuSecretaria();
+                       Login log=new Login();
+                       men.setVisible(true);
+                       log.dispose();
+                       return true;
+                   }
+                   if(r.getString("PUESTO").equals("Farmaceutico")){
+                       Menu_Farmacia men= new Menu_Farmacia("Farmaceutico");
+                       Login log=new Login();
+                       men.setVisible(true);
+                       log.dispose();
+                       return true;
+                   }
+                }
+                else {
+                    //JOptionPane.showMessageDialog(null,"No puede ser Autenticado, porfavor verifique su Usuario y Password","Campos no validos",JOptionPane.WARNING_MESSAGE);
+                    return false;
+                     }
+                miCon.close();
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        return true;
+    }
+    public boolean changePass(){
+        
+        Connection miCon = (new Conexion()).conectar();
+        if(miCon!=null){
+            try{
+               Statement stmt = miCon.createStatement();
+        
+        String sql= "UPDATE PERSONAL SET PASSWORD='"+password+"' WHERE RFC='"+user+"'";
+        ResultSet r = stmt.executeQuery(sql);
+                if(r.next()==true){    
+                   if(r.getString("PUESTO").equals("Administrador")){
+                       
                        Menu men= new Menu();
                        Login log=new Login();
                        men.setVisible(true);
